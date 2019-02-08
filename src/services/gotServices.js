@@ -39,33 +39,41 @@ export default class GotService {
         return this.getResource(`/houses/${id}`);
     }
 
+    isSet(data) {
+        if (data) {
+            return data
+        } else {
+            return 'No data'
+        }
+    }
+
     _transformCharacter(char) {
         return {
-            name: char.name,
-            gender: char.gender,
-            born: char.born,
-            died: char.died,
-            culture: char.culture
+            name: this.isSet(char.name),
+            gender: this.isSet(char.gender),
+            born: this.isSet(char.born),
+            died: this.isSet(char.died),
+            culture: this.isSet(char.culture)
         }
     }
 
     _transformHouse(house) {
         return {
-            name: house.name,
-            region: house.region,
-            words: house.words,
-            titles: house.titles,
-            overlords: house.overlord,
-            ancentralWeapons: house.ancentralWeapons
+            name: this.isSet(house.name),
+            region: this.isSet(house.region),
+            words: this.isSet(house.words),
+            titles: this.isSet(house.titles),
+            overlords: this.isSet(house.overlord),
+            ancentralWeapons: this.isSet(house.ancentralWeapons)
         }
     }
 
     _transformBook(book) {
         return {
-            name: book.name,
-            numberOfPages: book.numberOfPages,
-            publiser: book.publiser,
-            released: book.released
+            name: this.isSet(book.name),
+            numberOfPages: this.isSet(book.numberOfPages),
+            publiser: this.isSet(book.publiser),
+            released: this.isSet(book.released)
         }
     }
 }
