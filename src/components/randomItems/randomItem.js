@@ -54,8 +54,8 @@ export default class RandomItem extends Component {
     }
 
     updateItem = () => {
-        // const id = 150000;
-        const id = Math.floor(Math.random()*140+25);
+        // const id = 999999;
+        const id = Math.floor(Math.random()*150+25);
         this.gotService.getCharacter(id)
             .then(this.onCharLoaded)
             .catch(this.onError);
@@ -89,7 +89,7 @@ export default class RandomItem extends Component {
                         outline
                         color="secondary"
                         onClick={this.toggleRandomItem}
-                        style={{ marginBottom: '300px' }}
+                        style={{ marginBottom: '300px;'}}
                     >{buttonText}</Button>
                 </Col>
             </Row>
